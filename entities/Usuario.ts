@@ -5,7 +5,7 @@ import {
   OneToOne,
   BaseEntity,
 } from 'typeorm';
-import { Pedido } from '../models/Pedido';
+import { Pedido } from './Pedido';
 
 export enum RolEnum {
   ENCARGADO = 'Encargado',
@@ -37,10 +37,4 @@ export class Usuario extends BaseEntity {
 
   @Column()
   puesto: string;
-
-  @OneToOne(
-    () => Pedido,
-    (pedido) => (pedido.vendedor ? pedido.vendedor : pedido.repartidor)
-  )
-  pedido: Pedido[];
 }

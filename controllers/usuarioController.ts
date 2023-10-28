@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import { Usuario } from '../models/Usuario';
-import { Pedido } from '../models/Pedido';
+import { Usuario } from '../entities/Usuario';
+import { Pedido } from '../entities/Pedido';
 import asyncHandler from 'express-async-handler';
 import bcrypt from 'bcrypt';
 
