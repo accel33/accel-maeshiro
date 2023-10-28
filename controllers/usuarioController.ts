@@ -1,15 +1,14 @@
 import { Request, Response } from 'express';
-
 import { Usuario } from '../entities/Usuario';
-import { Pedido } from '../entities/Pedido';
 import asyncHandler from 'express-async-handler';
-import bcrypt from 'bcrypt';
+import { AppDataSource } from '../config/data-source';
+const userRepository = AppDataSource.getRepository(Usuario);
 
 // @desc Obtener todo los Usuarios
 // @ruta GET /usuarios
 // @acceso Privado
 const obtenerTodosLosUsuarios = asyncHandler(async (req: any, res: any) => {
-  const usuarios = await Usuario.find();
+  const usuarios = await userRepository.find();
   if (!usuarios?.length) {
     return res.status(400).json({ message: 'Usuarios no encontrados' });
   }
@@ -20,11 +19,7 @@ const obtenerTodosLosUsuarios = asyncHandler(async (req: any, res: any) => {
 // @ruta GET /usuarios/:id
 // @acceso Privado
 const obtenerUsuario = asyncHandler(async (req: any, res: any) => {
-  const usuarios = await Usuario.find();
-  if (!usuarios?.length) {
-    return res.status(400).json({ message: 'Usuarios no encontrados' });
-  }
-  res.json(usuarios);
+  console.log('Obtener Usuario');
 });
 
 // @desc Crear un Usuario

@@ -34,7 +34,7 @@ AppDataSource.initialize()
     // Rutas de la 'Interfaz de Programacion' para Aplicaciones
     app.use('/', express.static('./public'));
     app.use('/', rutaRaiz);
-    app.use('/users', rutaUsuario);
+    app.use('/usuario', rutaUsuario);
 
     app.all('*', (req, res) => {
       res.status(404);
@@ -53,8 +53,5 @@ AppDataSource.initialize()
   })
   .catch((err: InitializedRelationError) => {
     console.log(err);
-    logEvents(
-      `${err.message}: ${err.name}\t${err.stack}\t`,
-      'postgresErrLog.log'
-    );
+    logEvents(`${err.message}: ${err.name}\t`, 'postgresErrLog.log');
   });

@@ -15,7 +15,7 @@ export enum RolEnum {
 }
 
 @Entity('usuarios')
-export class Usuario extends BaseEntity {
+export class Usuario {
   @PrimaryGeneratedColumn('uuid')
   codigo_de_trabajador: string;
 

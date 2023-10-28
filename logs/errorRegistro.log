@@ -1,0 +1,4 @@
+20231028	10:28:04	8fbadc99-8a49-41f8-afc7-6450c7a03b04	Error	DataSource is not set for this entity.	GET	/usuario	undefined
+20231028	10:32:01	9ced39b8-c3d1-4c73-bc9a-8c50eb169ff9	Error	DataSource is not set for this entity.	GET	/usuario	undefined
+20231028	10:32:21	0a58411d-4f41-4ea3-b055-9b04b4c813e7	Error	DataSource is not set for this entity.	GET	/usuario	undefined
+20231028	10:48:09	4154cb6a-67ff-460d-b8c4-5f3d6220d9a5	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	GET	/usuario	undefined

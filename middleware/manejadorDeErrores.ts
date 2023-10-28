@@ -1,6 +1,6 @@
 import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 
-const { registrarEventos } = require('./logger');
+const { logEvents } = require('./logger');
 
 export const manejadorDeErrores: ErrorRequestHandler = (
   error: any,
@@ -12,7 +12,7 @@ export const manejadorDeErrores: ErrorRequestHandler = (
   const { name, message } = error;
   const mensaje = `${name}\t${message}\t${method}\t${url}\t${headers.origin}`;
 
-  registrarEventos(mensaje, 'errorRegistro.log');
+  logEvents(mensaje, 'errorRegistro.log');
   console.log(error.stack);
 
   const status = res.statusCode ? res.statusCode : 500;

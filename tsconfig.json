@@ -13,5 +13,6 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true
   }
 }

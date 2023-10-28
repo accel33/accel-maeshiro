@@ -8,9 +8,7 @@ export const AppDataSource = new DataSource({
   username: 'accel33',
   password: '',
   database: 'accel33',
-  synchronize: false,
+  synchronize: true,
   logging: false,
-  entities: ['src/entity/**/*.ts'],
-  migrations: ['src/migration/**/*.ts'],
-  subscribers: [],
+  entities: [__dirname + '/entities/*.ts'],
 });
