@@ -33,10 +33,10 @@ export class Pedido {
   })
   estado: EstadoEnum.POR_ATENDER;
 
-  @OneToOne(() => Usuario, (usuario) => usuario.pedido)
+  @OneToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
   vendedor: Usuario;
 
-  @OneToOne(() => Usuario, (usuario) => usuario.pedido)
+  @OneToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
   repartidor: Usuario;
 
   @OneToOne(() => Producto, (producto) => producto.pedido)
