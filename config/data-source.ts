@@ -1,3 +1,4 @@
+import path from 'path';
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 
@@ -10,5 +11,5 @@ export const AppDataSource = new DataSource({
   database: 'accel33',
   synchronize: true,
   logging: false,
-  entities: [__dirname + '/entities/*.ts'],
+  entities: [path.join(__dirname, '../entities/*.{js,ts}')],
 });

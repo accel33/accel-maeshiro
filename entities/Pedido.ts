@@ -1,12 +1,18 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToOne,
+  BaseEntity,
+} from 'typeorm';
 import { Usuario } from './Usuario';
 import { Producto } from './Producto';
 
 export enum EstadoEnum {
-  POR_ATENDER = 'Por atender',
-  EN_PROCESO = 'En proceso',
-  DELIVERY = 'Delivery',
-  RECIBIDO = 'Recibido',
+  POR_ATENDER = 0,
+  EN_PROCESO = 1,
+  DELIVERY = 2,
+  RECIBIDO = 3,
 }
 
 @Entity('pedidos')

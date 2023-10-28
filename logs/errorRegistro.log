@@ -4,3 +4,8 @@
 20231028	10:48:09	4154cb6a-67ff-460d-b8c4-5f3d6220d9a5	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	GET	/usuario	undefined
 20231028	10:56:55	92a5c408-ac3b-4b68-bf15-74aab1d8c75e	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	GET	/usuario	undefined
 20231028	11:08:08	561825b3-7d05-4736-807e-dabedaee2daa	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	POST	/usuario	undefined
+20231028	11:08:53	6d900159-e8dd-4e6b-b3e0-a23dc59d03c2	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	POST	/usuario	undefined
+20231028	11:14:34	32c08dc1-dea0-4a3a-b6ef-e28acee472ab	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	POST	/usuario	undefined
+20231028	11:32:26	24da70a9-506c-404c-9e76-e219b31c526e	EntityMetadataNotFoundError	No metadata for "Usuario" was found.	POST	/usuario	undefined
+20231028	11:40:19	31854f1b-8a3d-4611-82da-0bae03a62811	Error	DataSource is not set for this entity.	POST	/usuario	undefined
+20231028	12:16:38	34b96dea-443a-4dbc-98e3-6df84add5fe4	QueryFailedError	invalid input syntax for type uuid: "123"	POST	/usuario	undefined

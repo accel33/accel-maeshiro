@@ -1,21 +1,14 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  BaseEntity,
-} from 'typeorm';
-import { Pedido } from './Pedido';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 export enum RolEnum {
-  ENCARGADO = 'Encargado',
-  VENDEDOR = 'Vendedor',
-  DELIVERY = 'Delivery',
-  REPARTIDOR = 'Repartidor',
+  ENCARGADO = 0,
+  VENDEDOR = 1,
+  DELIVERY = 2,
+  REPARTIDOR = 3,
 }
 
 @Entity('usuarios')
-export class Usuario {
+export class Usuario extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   codigo_de_trabajador: string;
 
@@ -26,14 +19,14 @@ export class Usuario {
   email: string;
 
   @Column()
-  telefono: string;
+  telefono: number;
 
   @Column({
     type: 'enum',
     enum: RolEnum,
-    default: RolEnum.REPARTIDOR,
+    default: RolEnum.ENCARGADO,
   })
-  rol: RolEnum.REPARTIDOR;
+  rol: RolEnum.ENCARGADO;
 
   @Column()
   puesto: string;

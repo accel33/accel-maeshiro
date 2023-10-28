@@ -53,3 +53,19 @@
     at readableAddChunk (node:internal/streams/readable:349:9)
     at Socket.Readable.push (node:internal/streams/readable:286:10)
     at TCP.onStreamRead (node:internal/stream_base_commons:190:23)	
+20231028	12:15:50	66b01ae0-54be-4b24-99e5-8f4b289c400a	classesAndStrings.filter is not a function: TypeError	
+20231028	12:53:16	88adaf62-414a-4a89-9c0a-78e53fd6ad26	invalid input value for enum usuarios_rol_enum: "Delivery": QueryFailedError	
+20231028	12:53:27	6b615398-eab7-46d4-973a-f47eef1ea816	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	12:53:49	4d372d29-49ac-4e14-99aa-ec704f833e42	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	12:56:25	b0db8303-eac4-426d-8085-21ba30852461	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	12:56:35	5acbdbc5-63c0-41b4-a232-89112877d523	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	12:56:40	0895f73e-9339-488c-a53d-9d62e695616d	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	12:57:00	1a3827a3-3e77-4594-aaef-6441f576c187	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	13:08:09	c4caf742-f56d-4417-af0c-db8dc155a165	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	13:09:45	50e05303-5cdc-4d27-8189-f11cce8965a8	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	15:40:49	697ca156-fa5f-41f5-a15f-2101571adefe	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	16:57:29	c8450f6b-43ca-4ea1-9845-8ee5a71e1edd	invalid input value for enum usuarios_rol_enum: "Delivery": QueryFailedError	
+20231028	16:58:29	230b70a8-2023-46ad-86c4-6c431288b748	invalid input value for enum usuarios_rol_enum: "Delivery": QueryFailedError	
+20231028	17:01:29	178ea87a-06c5-4b58-85f1-2cfdad02b59c	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	17:11:54	a772240a-64e0-45d2-9050-92d00ef12f84	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
+20231028	17:14:27	ac67bc8e-d882-4d4d-94c2-eaf6032b8cf1	invalid input value for enum usuarios_rol_enum: "0": QueryFailedError	

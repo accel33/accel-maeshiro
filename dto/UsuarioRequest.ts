@@ -1,7 +1,7 @@
+import { Request } from 'express';
 import { RolEnum } from '../entities/Usuario';
 
-interface UsuarioDto {
-  codigo_de_trabajador: string;
+export interface UsuarioRequest extends Request {
   nombre: string;
   email: string;
   telefono: string;
