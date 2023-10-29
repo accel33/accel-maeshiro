@@ -5,12 +5,13 @@ import {
   borrarUsuario,
   crearUsuario,
   obtenerTodosLosUsuarios,
+  obtenerUsuario,
 } from '../controllers/usuarioController';
 
+router.route('/').get(obtenerTodosLosUsuarios).post(crearUsuario);
 router
-  .route('/')
-  .get(obtenerTodosLosUsuarios)
-  .post(crearUsuario)
+  .route('/:id')
+  .get(obtenerUsuario)
   .patch(actualizarUsuario)
   .delete(borrarUsuario);
 

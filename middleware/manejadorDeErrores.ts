@@ -3,7 +3,7 @@ import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 const { logEvents } = require('./logger');
 
 export const manejadorDeErrores: ErrorRequestHandler = (
-  error: any,
+  error: Error,
   req: Request,
   res: Response,
   next: NextFunction

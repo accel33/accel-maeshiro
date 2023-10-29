@@ -19,6 +19,9 @@ export class Usuario extends BaseEntity {
   email: string;
 
   @Column()
+  password: string;
+
+  @Column()
   telefono: number;
 
   @Column({
@@ -30,4 +33,5 @@ export class Usuario extends BaseEntity {
 
   @Column()
   puesto: string;
+  username: any;
 }

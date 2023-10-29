@@ -1,8 +1,8 @@
-import { Request } from 'express';
 import { RolEnum } from '../entities/Usuario';
 
-export interface UsuarioRequest extends Request {
+export interface Usuario {
   nombre: string;
+  password: string;
   email: string;
   telefono: string;
   rol: RolEnum;
