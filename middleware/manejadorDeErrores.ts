@@ -17,6 +17,9 @@ export const manejadorDeErrores: ErrorRequestHandler = (
 
   const status = res.statusCode ? res.statusCode : 500;
   res.status(status);
+  if (error.message.includes('duplicate key')) {
+    error.message = 'Error de restriccion: Email ya existe';
+  }
   res.json({ message: error.message });
   next();
 };

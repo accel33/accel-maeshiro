@@ -1,18 +1,12 @@
-import {
-  Entity,
-  Column,
-  PrimaryGeneratedColumn,
-  OneToOne,
-  BaseEntity,
-} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne } from 'typeorm';
 import { Usuario } from './Usuario';
 import { Producto } from './Producto';
 
 export enum EstadoEnum {
-  POR_ATENDER = 0,
-  EN_PROCESO = 1,
-  DELIVERY = 2,
-  RECIBIDO = 3,
+  POR_ATENDER = 'Por atender',
+  EN_PROCESO = 'En proceso',
+  DELIVERY = 'Delivery',
+  RECIBIDO = 'Recibido',
 }
 
 @Entity('pedidos')
@@ -37,7 +31,7 @@ export class Pedido {
     enum: EstadoEnum,
     default: EstadoEnum.POR_ATENDER,
   })
-  estado: EstadoEnum.POR_ATENDER;
+  estado: EstadoEnum;
 
   @OneToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
   vendedor: Usuario;

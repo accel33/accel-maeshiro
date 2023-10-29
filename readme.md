@@ -8,6 +8,12 @@ Se quiere desarrollar un sistema que tiene como actividad principal la venta de 
 2. Usuario encargado atiende el nuevo pedido
 3.
 
+### Seria bueno tener
+
+- [x] El codigo de trabajador simple para el usuario. Ejemplo: '001', '002', ... '900'. Dado que no van a haber mas de 1000 trabajadores en esta empresa.
+
+- [ ]
+
 ### Pendientes
 
 - [ ] Proyecto requiere Inversion de dependencia
@@ -26,28 +32,10 @@ Se quiere desarrollar un sistema que tiene como actividad principal la venta de 
       ![Alt text](images/RequestDto.png)
       <br>
 
-- [ ] Utilizar el DTO como Request
+- [x] Utilizar el DTO como Request
       ![Alt text](images/RequestDto.png)
       <br>
 
-- [ ] Error con el Enum
+- [x] Error con el Enum
       ![Alt text](images/error-con-el-enum.png)
       <br>
-
-### Valores de Estado y Roles
-
-```
-Estado De Pedido {
-  POR_ATENDER = 0,
-  EN_PROCESO = 1,
-  DELIVERY = 2,
-  RECIBIDO = 3,
-}
-
-Rol De Usuario {
-  ENCARGADO = 0,
-  VENDEDOR = 1,
-  DELIVERY = 2,
-  REPARTIDOR = 3,
-}
-```

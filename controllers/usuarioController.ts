@@ -36,10 +36,7 @@ const crearUsuario = asyncHandler(
     const nuevoUsuario = await Usuario.create(req.body);
     const result = await Usuario.save(nuevoUsuario);
 
-    res.json({
-      message: 'success',
-      payload: result,
-    });
+    res.json({ message: 'Usuario creado' });
   }
 );
 
@@ -58,11 +55,7 @@ const obtenerUsuario = asyncHandler(
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
-
-    res.json({
-      message: 'success',
-      payload: usuario,
-    });
+    res.json(usuario);
   }
 );
 
@@ -72,6 +65,7 @@ const obtenerUsuario = asyncHandler(
 const actualizarUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     console.log('Actualizar Usuario');
+    const { nombre, email, password, telefono, rol, puesto } = req.body;
 
     const err = await validatorDto(UsuarioDto, req.body);
     if (err) {
@@ -86,16 +80,22 @@ const actualizarUsuario = asyncHandler(
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
+    console.log(usuario);
+
+    usuario.nombre = nombre;
+    usuario.email = email;
+    usuario.password = password;
+    usuario.telefono = telefono;
+    usuario.rol = rol;
+    usuario.puesto = puesto;
 
     const result = await Usuario.save(usuario);
     if (!result) {
       return res.status(400).json({ message: 'Usuario no actualizado' });
     }
+    console.log(result);
 
-    res.json({
-      message: 'success',
-      payload: result,
-    });
+    res.json({ message: 'Usuario actualizado' });
   }
 );
 
@@ -111,9 +111,7 @@ const borrarUsuario = asyncHandler(
       return res.status(400).json({ message: 'Usuario no guardado' });
     }
 
-    res.json({
-      message: 'success',
-    });
+    res.json({ message: 'Usuario borrado' });
   }
 );
 

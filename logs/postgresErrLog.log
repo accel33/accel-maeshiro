@@ -69,3 +69,4 @@
 20231028	17:01:29	178ea87a-06c5-4b58-85f1-2cfdad02b59c	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
 20231028	17:11:54	a772240a-64e0-45d2-9050-92d00ef12f84	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
 20231028	17:14:27	ac67bc8e-d882-4d4d-94c2-eaf6032b8cf1	invalid input value for enum usuarios_rol_enum: "0": QueryFailedError	
+20231029	13:16:36	7a7d083c-e685-4b1c-91f5-9056ae282b34	column "codigo_de_trabajador" of relation "usuarios" contains null values: QueryFailedError	
