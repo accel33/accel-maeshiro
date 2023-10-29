@@ -70,3 +70,63 @@
 20231028	17:11:54	a772240a-64e0-45d2-9050-92d00ef12f84	column "telefono" of relation "usuarios" contains null values: QueryFailedError	
 20231028	17:14:27	ac67bc8e-d882-4d4d-94c2-eaf6032b8cf1	invalid input value for enum usuarios_rol_enum: "0": QueryFailedError	
 20231029	13:16:36	7a7d083c-e685-4b1c-91f5-9056ae282b34	column "codigo_de_trabajador" of relation "usuarios" contains null values: QueryFailedError	
+20231029	15:09:11	b0227201-e02d-4b50-853c-ca10d891b51f	⨯ Unable to compile TypeScript:
+[96mentities/Producto.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m5[0m export class Producto extends BaseEntity {
+[7m [0m [91m                              ~~~~~~~~~~[0m
+: TSError	
+20231029	15:09:15	9354b1da-5798-4abb-ab67-777bb2503491	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:11:37	114f7f8c-2dd3-4e9c-a5b8-122dbb5f07a1	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:12:21	67a99528-0f77-41d8-a4d5-d9a638ea9cc5	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:13:25	8c705687-144a-4d85-aa9d-fe9d9d4e58f3	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:14:07	b88da446-78ea-4ede-9735-506934b9fc2d	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:14:09	a035da2e-3dbd-429d-895b-785e1aeabb75	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:14:15	9b77c368-be72-4ec9-84d7-dc1de3abbcb5	⨯ Unable to compile TypeScript:
+[96mentities/Pedido.ts[0m:[93m21[0m:[93m29[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m21[0m export class Pedido extends BaseEntity {
+[7m  [0m [91m                            ~~~~~~~~~~[0m
+: TSError	
+20231029	15:14:51	39908799-566f-46ca-87ba-6873fa110bcd	⨯ Unable to compile TypeScript:
+[96mentities/Producto.ts[0m:[93m5[0m:[93m31[0m - [91merror[0m[90m TS2304: [0mCannot find name 'BaseEntity'.
+
+[7m5[0m export class Producto extends BaseEntity {
+[7m [0m [91m                              ~~~~~~~~~~[0m
+: TSError	
+20231029	15:31:35	1e1c8ac7-e6b8-46d0-adab-314a2dadb5d5	date/time field value out of range: "1698611495162": QueryFailedError	
+20231029	15:33:07	f174aa3c-ad43-4b0d-a309-e20745e984ee	date/time field value out of range: "1698611587734": QueryFailedError	
+20231029	15:33:41	09b433ce-c3b9-4613-9f0b-a5bec20b07ee	date out of range: "1698611621024": QueryFailedError	
+20231029	15:35:34	026286dc-cdea-466d-bbb1-fcfc75eac455	date/time field value out of range: "1698611734820": QueryFailedError	
+20231029	15:35:49	d9b3effa-b911-46e5-8023-3a4bf668fb08	date/time field value out of range: "1698611749339": QueryFailedError	
+20231029	15:41:38	a33cd667-a321-445c-9515-0ded2a1d0262	date/time field value out of range: "1698612098735": QueryFailedError	

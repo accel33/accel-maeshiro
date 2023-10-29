@@ -1,8 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  BaseEntity,
+} from 'typeorm';
 import { Pedido } from './Pedido';
 
 @Entity('productos')
-export class Producto {
+export class Producto extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   sku: string;
 
@@ -16,7 +22,7 @@ export class Producto {
   etiquetas: string;
 
   @Column()
-  precios: number;
+  precio: number;
 
   @Column()
   unidad_de_medida: string;

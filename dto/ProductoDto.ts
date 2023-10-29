@@ -1,41 +1,27 @@
-import {
-  IsNumber,
-  IsNotEmpty,
-  IsString,
-  Validate,
-  IsEnum,
-  IsEmail,
-} from 'class-validator';
-import { RolEnum } from '../entities/Usuario';
+import { IsNumber, IsNotEmpty, IsString } from 'class-validator';
 
-export class UsuarioDto {
+export class ProductoDto {
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  password: string;
+  sku: string;
 
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
   nombre: string;
 
+  @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
+  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  tipo: string;
+
+  @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
+  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  etiquetas: string;
+
   @IsNumber({}, { message: (args) => `${args.property} debe ingresar numeros` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  telefono: string;
-
-  @IsEnum(RolEnum, {
-    message: (args) =>
-      `${args.property} debe ser Encargado, Vendedor, Delivery o Repartidor`,
-  })
-  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  rol: RolEnum;
+  precio: number;
 
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  puesto: string;
-
-  @IsEmail(undefined, {
-    message: (args) => `${args.property} no es un email valido`,
-  })
-  @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
-  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  email: string;
+  unidad_de_medida: string;
 }

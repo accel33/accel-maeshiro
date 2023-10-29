@@ -17,6 +17,8 @@ import { InitializedRelationError } from 'typeorm';
 
 import rutaUsuario from './routes/rutaUsuario';
 import rutaRaiz from './routes/rutaPrincipal';
+import rutaPedido from './routes/rutaPedido';
+import rutaProducto from './routes/rutaProducto';
 
 AppDataSource.initialize()
   .then(async () => {
@@ -35,6 +37,8 @@ AppDataSource.initialize()
     app.use('/', express.static('./public'));
     app.use('/', rutaRaiz);
     app.use('/usuario', rutaUsuario);
+    app.use('/pedido', rutaPedido);
+    app.use('/producto', rutaProducto);
 
     app.all('*', (req, res) => {
       res.status(404);
