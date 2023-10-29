@@ -6,27 +6,33 @@ Se quiere desarrollar un sistema que tiene como actividad principal la venta de 
 
 1. Usuario se loguea al sistema
 2. Usuario encargado atiende el nuevo pedido
-3. 
+3.
 
 ### Pendientes
+
 - [ ] Proyecto requiere Inversion de dependencia
-![Alt text](images/InversionDeDependencia.png)
-<br>
+      ![Alt text](images/InversionDeDependencia.png)
+      <br>
+
 - [ ] Proyecto requiere Sustitucion de Liskov
-![Alt text](images/LiskovSustitution.png)
-<br>
+      ![Alt text](images/LiskovSustitution.png)
+      <br>
+
 - [ ] Necesito una explicacion para este principio
-![Alt text](images/AbiertoCerrado.png)
-<br>
+      ![Alt text](images/AbiertoCerrado.png)
+      <br>
+
 - [ ] Utilizar el DTO como Request
-![Alt text](images/RequestDto.png)
-<br>
+      ![Alt text](images/RequestDto.png)
+      <br>
+
 - [ ] Utilizar el DTO como Request
-![Alt text](images/RequestDto.png)
-<br>
+      ![Alt text](images/RequestDto.png)
+      <br>
+
 - [ ] Error con el Enum
-![Alt text](images/error-con-el-enum.png)
-<br>
+      ![Alt text](images/error-con-el-enum.png)
+      <br>
 
 ### Valores de Estado y Roles
 
