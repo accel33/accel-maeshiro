@@ -22,3 +22,22 @@
 20231029	13:51:29	949943f5-a973-4556-90f4-6984333b40f1	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
 20231029	13:51:30	68a89b40-f617-4466-a6f7-402b1007c31e	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
 20231029	13:51:41	1c3632a5-f67b-40eb-9cca-ab18dadd25c1	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231030	12:21:02	13f3d7a6-419a-4fe0-bb20-29ba77ee3ff9	QueryFailedError	null value in column "fecha_recepcion" of relation "pedidos" violates not-null constraint	POST	/pedido/	undefined
+20231030	12:27:59	b5a004d8-0ee1-41d2-8e16-279f0171a754	QueryFailedError	null value in column "fecha_despacho" of relation "pedidos" violates not-null constraint	POST	/pedido/	undefined
+20231030	12:31:15	d90aff23-a9b4-4758-b7d2-adf55665d0fd	QueryFailedError	null value in column "fecha_despacho" of relation "pedidos" violates not-null constraint	POST	/pedido/	undefined
+20231030	12:34:57	d3e11d85-9a12-4b90-8aa1-b31418e637de	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231030	12:35:01	c15fa1d1-d610-4ee0-a8a7-bdb27a5a9be7	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231030	12:36:34	df6d62c7-5443-46bd-81ef-17f1170903aa	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	PATCH	/usuario/001	undefined
+20231030	13:57:51	8b65fe65-6416-4601-986a-f821b21a9d0d	QueryFailedError	duplicate key value violates unique constraint "PK_c2267483e5ac7f60d3123b15ec7"	POST	/pedido/	undefined
+20231030	13:58:42	40c5d653-687b-4a3b-a125-e655ae1fb19d	QueryFailedError	duplicate key value violates unique constraint "PK_c2267483e5ac7f60d3123b15ec7"	POST	/pedido/	undefined
+20231030	13:59:50	8c5fdd8f-e962-4d3c-a573-f87818b524c9	QueryFailedError	relation "pedidos" does not exist	POST	/pedido/	undefined
+20231030	14:51:19	19a6b7ee-3095-4f63-9442-b09565dee900	QueryFailedError	column entity.codigo_de_trabajador does not exist	POST	/producto/	undefined
+20231030	14:55:37	8a477ec2-8e92-412c-bfdf-18d19d554aa1	QueryFailedError	duplicate key value violates unique constraint "PK_c2267483e5ac7f60d3123b15ec7"	POST	/pedido/	undefined
+20231030	14:55:58	b7e8b843-1ef5-4685-bc0f-04135680ea51	SyntaxError	Unexpected token '}', ..."oductos":
+}" is not valid JSON	GET	/pedido/	undefined
+20231030	14:56:52	d3166aa9-17da-4952-bd22-fe8e395e382d	SyntaxError	Unexpected token '}', ..."oductos":
+}" is not valid JSON	GET	/pedido/	undefined
+20231030	14:57:01	a16e6006-b2ff-4950-9d83-226e03b85adb	SyntaxError	Expected double-quoted property name in JSON at position 145	GET	/pedido/	undefined
+20231030	14:57:45	37e4e93c-edd4-4d67-a7e0-bdcf84354461	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined
+20231030	14:58:56	44f636b4-d48d-454f-bad1-2a3b68148ba9	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined
+20231030	14:58:57	aaf03101-13ac-4c45-bc99-fbb77a86cce2	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined

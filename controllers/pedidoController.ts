@@ -7,7 +7,7 @@ import { validatorDto } from '../dto/ValidatorDto';
 // const pedidoRepository = AppDataSource.getRepository(Pedido);
 
 // @desc Obtener todo los Pedidos
-// @ruta GET /pedidos
+// @ruta GET /pedido
 // @acceso Privado
 const obtenerTodosLosPedidos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -20,7 +20,7 @@ const obtenerTodosLosPedidos = asyncHandler(
 );
 
 // @desc Crear un Pedido
-// @ruta POST /pedidos
+// @ruta POST /pedido
 // @acceso Privado
 const crearPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -35,26 +35,21 @@ const crearPedido = asyncHandler(
       });
     }
 
-    const nuevoPedido = {
-      // fecha_recepcion: '28-10-1990',
-      // fecha_despacho: '28-10-1990',
-      // fecha_entrega: '28-10-1990',
-      // vendedor: 'Gabriel',
-      // repartidor: 'Gabriel',
-      fecha_pedido: new Date().getTime(),
-      estado: 'Por atender',
-      productos,
-    };
+    const guardarPedido = await Pedido.create(req.body);
+    console.log('guardarPedido');
+    console.log(guardarPedido);
 
-    const guardarPedido = await Pedido.create(nuevoPedido);
     const result = await Pedido.save(guardarPedido);
+    console.log('result');
+
+    console.log(result);
 
     res.json({ message: 'Pedido creado' });
   }
 );
 
 // @desc Obtener un Pedidos
-// @ruta GET /pedidos/:id
+// @ruta GET /pedido/:id
 // @acceso Privado
 const obtenerPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -73,7 +68,7 @@ const obtenerPedido = asyncHandler(
 );
 
 // @desc Actualizar un Pedido
-// @ruta PATCH /pedidos/:id
+// @ruta PATCH /pedido/:id
 // @acceso Privado
 const actualizarPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -124,7 +119,7 @@ const actualizarPedido = asyncHandler(
 );
 
 // @desc Borrar un Pedido
-// @ruta DELETE /pedidos/:id
+// @ruta DELETE /pedido/:id
 // @acceso Privado
 const borrarPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {

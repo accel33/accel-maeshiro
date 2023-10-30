@@ -1,7 +1,6 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   OneToOne,
   PrimaryColumn,
   BeforeInsert,
@@ -24,16 +23,22 @@ export class Pedido extends BaseEntity {
   @PrimaryColumn()
   numero_de_pedido: string;
 
-  @CreateDateColumn()
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   fecha_pedido: Date;
 
-  @Column({ type: 'timestamptz' })
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
   fecha_recepcion: Date;
 
-  @Column({ type: 'date' })
+  @Column({ type: 'date', nullable: true })
   fecha_despacho: Date;
 
-  @Column({ type: 'date' })
+  @Column({ type: 'date', nullable: true })
   fecha_entrega: Date;
 
   @Column({
@@ -61,8 +66,8 @@ export class Pedido extends BaseEntity {
 
     try {
       const currentMaxId = await queryRunner.manager
-        .createQueryBuilder(Usuario, 'entity')
-        .select('MAX(CAST(entity.codigo_de_trabajador AS INTEGER))', 'maxId')
+        .createQueryBuilder(Pedido, 'entity')
+        .select('MAX(CAST(entity.numero_de_pedido AS INTEGER))', 'maxId')
         .getRawOne();
 
       const nextId = generateCustomId(currentMaxId.maxId || 0);

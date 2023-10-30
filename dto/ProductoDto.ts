@@ -3,10 +3,6 @@ import { IsNumber, IsNotEmpty, IsString } from 'class-validator';
 export class ProductoDto {
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  sku: string;
-
-  @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
-  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
   nombre: string;
 
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
