@@ -25,8 +25,6 @@ const obtenerTodosLosUsuarios = asyncHandler(
 // @acceso Privado
 const crearUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Crear Usuario');
-    console.log('body', req.body);
     const { password } = req.body;
 
     const err = await validatorDto(UsuarioDto, req.body);
@@ -41,16 +39,10 @@ const crearUsuario = asyncHandler(
     const nuevoUsuario = await Usuario.create(req.body);
     nuevoUsuario.password = hashedPwd;
 
-    console.log('nuevoUsuario');
-    console.log(nuevoUsuario);
-
     const result = await Usuario.save(nuevoUsuario);
     if (!result) {
       return res.status(400).json({ message: 'Usuario no guardado' });
     }
-
-    console.log('result');
-    console.log(result);
 
     res.json({ message: 'Usuario creado' });
   }
@@ -61,10 +53,6 @@ const crearUsuario = asyncHandler(
 // @acceso Privado
 const obtenerUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Obtener Usuario');
-    console.log('called');
-    console.log(req.params.id);
-
     const usuario = await Usuario.findOneBy({
       codigoTrabajador: req.params.id,
     });
@@ -80,7 +68,6 @@ const obtenerUsuario = asyncHandler(
 // @acceso Privado
 const actualizarUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Actualizar Usuario');
     const { nombre, email, password, telefono, rol, puesto } = req.body;
 
     const err = await validatorDto(UsuarioDto, req.body);
@@ -112,7 +99,6 @@ const actualizarUsuario = asyncHandler(
     if (!result) {
       return res.status(400).json({ message: 'Usuario no actualizado' });
     }
-    console.log(result);
 
     res.json({ message: 'Usuario actualizado' });
   }
@@ -123,8 +109,6 @@ const actualizarUsuario = asyncHandler(
 // @acceso Privado
 const borrarUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Borrar usuario');
-
     const usuario = await Usuario.delete(req.params.id);
     if (!usuario) {
       return res.status(400).json({ message: 'Usuario no guardado' });

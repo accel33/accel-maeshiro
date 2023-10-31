@@ -25,9 +25,6 @@ const obtenerTodosLosProductos = asyncHandler(
 // @acceso Privado
 const crearProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Crear Producto');
-    console.log('body', req.body);
-
     const err = await validatorDto(ProductoDto, req.body);
     if (err) {
       return res.json({
@@ -46,10 +43,6 @@ const crearProducto = asyncHandler(
 // @acceso Privado
 const obtenerProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Obtener Producto');
-    console.log('called');
-    console.log(req.params.id);
-
     const producto = await Producto.findOneBy({
       sku: req.params.id,
     });
@@ -65,7 +58,6 @@ const obtenerProducto = asyncHandler(
 // @acceso Privado
 const actualizarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Actualizar Producto');
     const { nombre, tipo, etiquetas, precio, unidadMedida } = req.body;
 
     const err = await validatorDto(ProductoDto, req.body);
@@ -81,7 +73,6 @@ const actualizarProducto = asyncHandler(
     if (!producto) {
       return res.status(404).json({ message: 'Producto no encontrado' });
     }
-    console.log(producto);
 
     producto.nombre = nombre;
     producto.tipo = tipo;
@@ -93,7 +84,6 @@ const actualizarProducto = asyncHandler(
     if (!result) {
       return res.status(400).json({ message: 'Producto no actualizado' });
     }
-    console.log(result);
 
     res.json({ message: 'Producto actualizado' });
   }
@@ -104,8 +94,6 @@ const actualizarProducto = asyncHandler(
 // @acceso Privado
 const borrarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Borrar producto');
-
     const producto = await Producto.delete(req.params.id);
     if (!producto) {
       return res.status(400).json({ message: 'Producto no guardado' });

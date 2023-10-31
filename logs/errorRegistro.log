@@ -91,3 +91,4 @@
 20231031	12:00:28	6cb193d4-a98a-4a69-bf32-844f41ec3028	SyntaxError	Unexpected number in JSON at position 49	POST	/pedido/	undefined
 20231031	12:01:01	7c453793-dc46-40ba-8cec-85849b387b43	SyntaxError	Unexpected number in JSON at position 49	POST	/pedido/	undefined
 20231031	12:51:07	f52a2117-1f99-499d-a594-5fd20afd46d0	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
+20231031	13:05:39	c742ec25-7c8a-4fd0-9cf1-8fd83a4920be	TypeError	moment_1.default.tz is not a function	PATCH	/pedido/2	undefined

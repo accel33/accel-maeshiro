@@ -405,3 +405,13 @@
 20231031	12:51:10	587a5f0f-c3a3-475c-9df7-a052c187a8ea	GET	/usuario/	undefined
 20231031	12:51:11	c8ec03db-4d7b-4014-966e-8d9da328f125	GET	/producto/	undefined
 20231031	12:51:13	54ea7e0b-f99a-4730-b5f6-5d221de1ed29	GET	/pedido	undefined
+20231031	13:04:42	5fb9efae-db90-4149-8ae7-174ae0b74b93	POST	/pedido/	undefined
+20231031	13:04:47	418b32ad-fe3f-4816-b502-1da0a12beb19	POST	/producto/	undefined
+20231031	13:04:58	ca044119-ce75-4a5a-8cdc-cb49c59815f6	POST	/producto/	undefined
+20231031	13:05:02	cfa72bdf-de89-4c56-8163-0816845d4e14	GET	/producto/	undefined
+20231031	13:05:08	8faa2056-5e6c-4a9d-9cd7-11de13a626e6	POST	/pedido/	undefined
+20231031	13:05:17	b67a2e57-adc8-4c4d-840b-10e4ddb60353	GET	/pedido	undefined
+20231031	13:05:36	0ac4838c-b288-4787-aef1-bdba69c1f4f2	PATCH	/pedido/12	undefined
+20231031	13:05:39	90ecf3f7-a7f6-46b2-b0ba-f64a9e83e38e	PATCH	/pedido/2	undefined
+20231031	13:07:14	65072a86-119d-4374-b94b-40d9f8020377	PATCH	/pedido/2	undefined
+20231031	13:07:16	ec334fb7-0f9c-41d2-a62c-dbaa617c037a	GET	/pedido	undefined
