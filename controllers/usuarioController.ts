@@ -3,6 +3,7 @@ import { Usuario } from '../entities/Usuario';
 import asyncHandler from 'express-async-handler';
 import { UsuarioDto } from '../dto/UsuarioDto';
 import { validatorDto } from '../dto/ValidatorDto';
+import bcrypt from 'bcrypt';
 // import { AppDataSource } from '../config/data-source';
 // const usuarioRepository = AppDataSource.getRepository(Usuario);
 
@@ -26,6 +27,7 @@ const crearUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     console.log('Crear Usuario');
     console.log('body', req.body);
+    const { password } = req.body;
 
     const err = await validatorDto(UsuarioDto, req.body);
     if (err) {
@@ -33,8 +35,22 @@ const crearUsuario = asyncHandler(
         message: `Error de validacion: ${err}`,
       });
     }
+
+    const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
+
     const nuevoUsuario = await Usuario.create(req.body);
+    nuevoUsuario.password = hashedPwd;
+
+    console.log('nuevoUsuario');
+    console.log(nuevoUsuario);
+
     const result = await Usuario.save(nuevoUsuario);
+    if (!result) {
+      return res.status(400).json({ message: 'Usuario no guardado' });
+    }
+
+    console.log('result');
+    console.log(result);
 
     res.json({ message: 'Usuario creado' });
   }
@@ -81,13 +97,6 @@ const actualizarUsuario = asyncHandler(
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
     console.log(usuario);
-
-    usuario.nombre = nombre;
-    usuario.email = email;
-    usuario.password = password;
-    usuario.telefono = telefono;
-    usuario.rol = rol;
-    usuario.puesto = puesto;
 
     const result = await Usuario.save(usuario);
     if (!result) {

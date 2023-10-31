@@ -19,6 +19,7 @@ import rutaUsuario from './routes/rutaUsuario';
 import rutaRaiz from './routes/rutaPrincipal';
 import rutaPedido from './routes/rutaPedido';
 import rutaProducto from './routes/rutaProducto';
+import rutaAuth from './routes/rutaAuth';
 
 AppDataSource.initialize()
   .then(async () => {
@@ -39,6 +40,7 @@ AppDataSource.initialize()
     app.use('/usuario', rutaUsuario);
     app.use('/pedido', rutaPedido);
     app.use('/producto', rutaProducto);
+    app.use('/auth', rutaAuth);
 
     app.all('*', (req, res) => {
       res.status(404);

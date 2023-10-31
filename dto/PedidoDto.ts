@@ -41,6 +41,7 @@ export class PedidoDto {
   repartidor: string;
 
   @IsArray({ message: (args) => `${args.property} debe arreglo de strings` })
-  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  // @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  @IsOptional()
   productos: string[];
 }

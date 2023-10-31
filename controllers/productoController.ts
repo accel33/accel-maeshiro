@@ -12,6 +12,7 @@ import { validatorDto } from '../dto/ValidatorDto';
 const obtenerTodosLosProductos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     const productos = await Producto.find();
+
     if (!productos?.length) {
       return res.status(400).json({ message: 'Productos no encontrados' });
     }

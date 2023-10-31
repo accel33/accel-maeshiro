@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import rateLimit, { Options } from 'express-rate-limit';
 import { logEvents } from '../middleware/logger';
 
-const loginLimitador = rateLimit({
+export const loginLimitador = rateLimit({
   windowMs: 60 * 1000, // 1 minute
   max: 5, // Limit each IP to 5 login requests per `window` per minute
   message: {
@@ -24,5 +24,3 @@ const loginLimitador = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
-
-module.exports = loginLimitador;

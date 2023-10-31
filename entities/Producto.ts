@@ -7,6 +7,8 @@ import {
   BeforeInsert,
   PrimaryColumn,
   OneToOne,
+  OneToMany,
+  JoinColumn,
 } from 'typeorm';
 import { Pedido } from './Pedido';
 import { AppDataSource } from '../config/data-source';
@@ -31,7 +33,8 @@ export class Producto extends BaseEntity {
   @Column()
   unidad_de_medida: string;
 
-  @OneToOne(() => Pedido, (pedido) => pedido.productos)
+  @ManyToOne(() => Pedido, (pedido) => pedido.productos)
+  @JoinColumn()
   pedido: Pedido | null;
 
   @BeforeInsert()

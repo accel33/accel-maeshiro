@@ -33,12 +33,12 @@ const login = asyncHandler(
         },
       },
       process.env.ACCESS_TOKEN_SECRET!,
-      { expiresIn: '1m' }
+      { expiresIn: '20s' }
     );
     const refreshToken = jwt.sign(
       { username: usuario?.nombre },
       process.env.REFRESH_TOKEN_SECRET!,
-      { expiresIn: '7d' }
+      { expiresIn: '1m' }
     );
     // Crea cookie segura con el refresh token
     res.cookie('jwt', refreshToken, {
@@ -105,4 +105,4 @@ const logout = async (req: Request, res: Response): Promise<any> => {
   res.json({ message: 'Cookie liberada' });
 };
 
-module.exports = { login, refresher, logout };
+export { login, logout, refresher };

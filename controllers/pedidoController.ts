@@ -11,7 +11,10 @@ import { validatorDto } from '../dto/ValidatorDto';
 // @acceso Privado
 const obtenerTodosLosPedidos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const pedidos = await Pedido.find();
+    const pedidos = await Pedido.find({
+      // relations: ['vendedor', 'repartidor'],
+      relations: ['vendedor', 'repartidor', 'productos'],
+    });
     if (!pedidos?.length) {
       return res.status(400).json({ message: 'Pedidos no encontrados' });
     }
@@ -40,8 +43,10 @@ const crearPedido = asyncHandler(
     console.log(guardarPedido);
 
     const result = await Pedido.save(guardarPedido);
+    if (!result) {
+      return res.status(400).json({ message: 'Pedido no guardado' });
+    }
     console.log('result');
-
     console.log(result);
 
     res.json({ message: 'Pedido creado' });
@@ -98,15 +103,6 @@ const actualizarPedido = asyncHandler(
       return res.status(404).json({ message: 'Pedido no encontrado' });
     }
     console.log(pedido);
-
-    pedido.fecha_despacho = fecha_despacho;
-    pedido.fecha_entrega = fecha_entrega;
-    pedido.fecha_pedido = fecha_pedido;
-    pedido.fecha_recepcion = fecha_recepcion;
-    pedido.estado = estado;
-    pedido.vendedor = vendedor;
-    pedido.repartidor = repartidor;
-    pedido.productos = productos;
 
     const result = await Pedido.save(pedido);
     if (!result) {

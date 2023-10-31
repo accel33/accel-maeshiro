@@ -41,3 +41,37 @@
 20231030	14:57:45	37e4e93c-edd4-4d67-a7e0-bdcf84354461	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined
 20231030	14:58:56	44f636b4-d48d-454f-bad1-2a3b68148ba9	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined
 20231030	14:58:57	aaf03101-13ac-4c45-bc99-fbb77a86cce2	QueryFailedError	column entity.numero_de_pedido does not exist	POST	/pedido/	undefined
+20231030	16:00:16	acce126f-9188-4b5e-8908-e0ade5bcd498	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:00:34	fda455c7-992b-4634-95a3-2f06430b1410	QueryFailedError	relation "pedidos" does not exist	POST	/pedido/	undefined
+20231030	16:03:56	261d58ad-f89a-4e23-b6ab-e8f48bb5918f	QueryFailedError	relation "pedidos" does not exist	GET	/pedido/	undefined
+20231030	16:04:01	5d02b171-14fe-49c5-bccb-73ded1409360	QueryFailedError	relation "productos" does not exist	GET	/producto/	undefined
+20231030	16:04:05	071677ae-74da-4f9f-b7c9-e3c88e31c662	QueryFailedError	relation "usuarios" does not exist	GET	/usuario/	undefined
+20231030	16:04:27	3937416e-6534-4a1d-b51a-6216678acc1f	QueryFailedError	relation "usuarios" does not exist	POST	/usuario/	undefined
+20231030	16:04:29	a4d94224-40c7-4446-a98c-715793502642	QueryFailedError	relation "usuarios" does not exist	GET	/usuario/	undefined
+20231030	16:05:51	349addb6-bfcc-4548-a2fd-084bf6eb64eb	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:13:09	6057ab21-6d4b-40bb-bbcf-5b9fb11837b9	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	16:14:13	b94e6edf-4726-4bab-b958-ca59c3226bf7	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	16:15:15	a783a8cd-2eb4-4dda-b359-7570765fa77f	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:18:24	1014a58c-ec53-4796-af45-2404ae0d1937	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:19:02	6e23f75c-b95b-4156-8f77-2ba09aaa1ec3	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:19:18	bc489a0e-066d-4533-8ff2-4facea1db307	QueryFailedError	relation "pedidos" does not exist	POST	/pedido/	undefined
+20231030	16:20:01	9e75fd63-e244-4c07-9df0-87267b79811b	UpdateValuesMissingError	Cannot perform update query because update values are not defined. Call "qb.set(...)" method to specify updated values.	POST	/pedido/	undefined
+20231030	16:22:58	4da0998a-b7db-484d-b827-12b5516bc3ab	QueryFailedError	syntax error at end of input	GET	/pedido/	undefined
+20231030	16:33:16	55af002d-cbcd-4500-9083-a485c4fac6b5	QueryFailedError	relation "productos" does not exist	POST	/producto/	undefined
+20231030	16:33:18	6b1cc69a-ec91-41fc-897a-3f9eed6724a5	QueryFailedError	relation "pedidos" does not exist	POST	/pedido/	undefined
+20231030	16:34:27	cc8cc34f-68f8-4e36-8e95-b706d294c59b	QueryFailedError	syntax error at end of input	GET	/pedido/	undefined
+20231030	16:36:08	a65ea5b2-d3b6-42d9-895b-9635f264d2ef	TypeError	Cannot read properties of undefined (reading 'tablePath')	GET	/pedido/	undefined
+20231030	16:39:57	46467dca-3d13-46df-8218-4ca34c3c4d17	TypeError	Cannot read properties of undefined (reading 'tablePath')	GET	/pedido/	undefined
+20231030	17:19:56	1ebcda68-fae6-417b-a9bd-d3afd5047f34	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	17:32:24	ceefbd65-a965-463b-b8bc-f55ee2165735	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231030	17:33:10	f20b5070-9283-41be-bc4d-8cbcea0621ab	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231030	17:33:23	7b5684d2-f5db-4612-83c9-0ff17846dd9e	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231030	17:33:32	15dd0828-fec0-487f-95d8-a169bafe4c28	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231030	17:39:08	bc547b6f-9376-408c-9894-8b0b5b51f17a	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	17:42:06	10f18c72-82b0-4879-8435-e99190ed46fc	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	17:44:21	43513c6c-e613-45ad-aa9b-ed4520e17a78	QueryFailedError	duplicate key value violates unique constraint "REL_382426a190bae57296a7106ce3"	POST	/pedido/	undefined
+20231030	17:44:23	77047ca9-d410-44db-b79e-2e8c0e37dcff	SyntaxError	Unterminated string in JSON at position 75	POST	/pedido/	undefined
+20231030	17:44:25	fde7baa8-040d-4f65-a581-711525bf2bc5	SyntaxError	Unterminated string in JSON at position 76	POST	/pedido/	undefined
+20231030	17:44:29	59ef0b3c-f707-4dde-9c9b-e5d2ea9c9302	SyntaxError	Expected ',' or '}' after property value in JSON at position 76	POST	/pedido/	undefined
+20231030	22:25:15	71d71b58-b965-4015-a8dd-319837636ade	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231030	22:25:32	d8c7c9bb-5da6-454e-bed7-96eb905a4c94	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
