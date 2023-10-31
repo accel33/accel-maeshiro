@@ -2,11 +2,17 @@
 
 Se quiere desarrollar un sistema que tiene como actividad principal la venta de productos basicos. Su principal problema es que no realizan un correcto _tracking_ al momento de hacer los pedidos de productos para abastecer su stock.
 
-### Flujo
+### Proceso Principal
 
-1. Usuario se loguea al sistema
-2. Usuario se encarga del nuevo pedido
-3. Usuario puede modificar el estado, asignar repartidor y asignar vendedor
+1. Usuario se loguea al sistema y recibe un token de acceso como respuesta de la solicitud a la ruta /auth. Al mismo tiempo recibe una cookie en la cual se encuentra el token de refresco (Tanto la cookie como el token tienen mismo tiempo de vida, siete dias).
+2. Usuario se encarga del nuevo pedido.
+3. Usuario puede modificar el estado, asignar repartidor y asignar vendedor.
+
+### Proceso Secundario
+
+1. Usuario puede crear, actualizar, listar y borrar pedidos.
+2. Usuario puede crear, actualizar, listar y borrar productos.
+3. Usuario puede crear, actualizar, listar y borrar usuarios.
 
 ### Configuración inicial
 

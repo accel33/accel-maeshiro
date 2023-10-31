@@ -415,3 +415,5 @@
 20231031	13:05:39	90ecf3f7-a7f6-46b2-b0ba-f64a9e83e38e	PATCH	/pedido/2	undefined
 20231031	13:07:14	65072a86-119d-4374-b94b-40d9f8020377	PATCH	/pedido/2	undefined
 20231031	13:07:16	ec334fb7-0f9c-41d2-a62c-dbaa617c037a	GET	/pedido	undefined
+20231031	17:39:53	0ab313fb-8205-4d52-8382-74cb256208cc	POST	/auth/	undefined
+20231031	17:41:40	aba31f4c-6cba-4038-bccc-71a58dbc3f2b	GET	/auth/refresh	undefined
