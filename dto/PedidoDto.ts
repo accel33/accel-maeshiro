@@ -11,19 +11,19 @@ import { EstadoEnum } from '../entities/Pedido';
 export class PedidoDto {
   @IsDate({ message: (args) => `${args.property} debe ingresar fecha` })
   @IsOptional()
-  fecha_pedido: Date;
+  fechaPedido: Date;
 
   @IsDate({ message: (args) => `${args.property} debe ingresar fecha` })
   @IsOptional()
-  fecha_recepcion: Date;
+  fechaRecepcion: Date;
 
   @IsDate({ message: (args) => `${args.property} debe ingresar fecha` })
   @IsOptional()
-  fecha_despacho: Date;
+  fechaDespacho: Date;
 
   @IsDate({ message: (args) => `${args.property} debe ingresar fecha` })
   @IsOptional()
-  fecha_entrega: Date;
+  fechaEntrega: Date;
 
   @IsEnum(EstadoEnum, {
     message: (args) =>

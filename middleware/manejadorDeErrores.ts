@@ -17,9 +17,13 @@ export const manejadorDeErrores: ErrorRequestHandler = (
 
   const status = res.statusCode ? res.statusCode : 500;
   res.status(status);
-  // if (error.message.includes('duplicate key')) {
-  //   error.message = 'Error de restriccion: Email ya existe';
-  // }
+  if (error.message.includes('UQ_')) {
+    error.message = 'Error de restriccion: Email ya existe';
+  }
+  if (error.message.includes('FK_')) {
+    error.message =
+      'Error de restriccion: No existe ese Usuario en la base de datos';
+  }
   res.json({ message: error.message });
   next();
 };

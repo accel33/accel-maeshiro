@@ -6,13 +6,15 @@ import {
   BeforeInsert,
   PrimaryColumn,
   JoinColumn,
+  Unique,
 } from 'typeorm';
 import { Pedido } from './Pedido';
-import { AppDataSource } from '../config/data-source';
+import { AppDataSource } from '../config/dataSource';
 
 @Entity('productos')
+@Unique(['sku', 'pedido'])
 export class Producto extends BaseEntity {
-  @PrimaryColumn()
+  @PrimaryColumn({ unique: true })
   sku: string;
 
   @Column()
@@ -28,10 +30,9 @@ export class Producto extends BaseEntity {
   precio: number;
 
   @Column()
-  unidad_de_medida: string;
+  unidadMedida: string;
 
   @ManyToOne(() => Pedido, (pedido) => pedido.productos)
-  @JoinColumn()
   pedido: Pedido | null;
 
   @BeforeInsert()

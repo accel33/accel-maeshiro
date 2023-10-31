@@ -5,7 +5,7 @@ import {
   BeforeInsert,
   PrimaryColumn,
 } from 'typeorm';
-import { AppDataSource } from '../config/data-source';
+import { AppDataSource } from '../config/dataSource';
 
 export enum RolEnum {
   ENCARGADO = 'Encargado',
@@ -17,7 +17,7 @@ export enum RolEnum {
 @Entity('usuarios')
 export class Usuario extends BaseEntity {
   @PrimaryColumn()
-  codigo_de_trabajador: string;
+  codigoTrabajador: string;
 
   @Column()
   nombre: string;
@@ -57,7 +57,7 @@ export class Usuario extends BaseEntity {
 
       const nextId = generateCustomId(currentMaxId.maxId || 0);
 
-      this.codigo_de_trabajador = nextId;
+      this.codigoTrabajador = nextId;
 
       await queryRunner.commitTransaction();
     } catch (error) {

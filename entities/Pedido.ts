@@ -22,19 +22,19 @@ export enum EstadoEnum {
 export class Pedido extends BaseEntity {
   // @PrimaryColumn()
   @PrimaryGeneratedColumn('identity')
-  numero_de_pedido: string;
+  numeroPedido: string;
 
   @Column({ type: 'timestamptz', nullable: true })
-  fecha_pedido: Date;
+  fechaPedido: Date;
 
   @Column({ type: 'timestamptz', nullable: true })
-  fecha_recepcion: Date;
+  fechaRecepcion: Date;
 
   @Column({ type: 'timestamptz', nullable: true })
-  fecha_despacho: Date;
+  fechaDespacho: Date;
 
   @Column({ type: 'timestamptz', nullable: true })
-  fecha_entrega: Date;
+  fechaEntrega: Date;
 
   @Column({
     type: 'enum',
@@ -43,15 +43,16 @@ export class Pedido extends BaseEntity {
   })
   estado: EstadoEnum;
 
-  @ManyToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
+  @ManyToOne(() => Usuario, (usuario) => usuario.codigoTrabajador)
   @JoinColumn()
   vendedor: Usuario;
 
-  @ManyToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
+  @ManyToOne(() => Usuario, (usuario) => usuario.codigoTrabajador)
   @JoinColumn()
   repartidor: Usuario;
 
   @OneToMany(() => Producto, (producto) => producto.pedido)
+  @JoinColumn()
   productos: Producto[];
 }
 //   @BeforeInsert()

@@ -83,3 +83,10 @@
 20231030	23:45:01	950c5bf9-6ed8-49e0-b082-ad9cd85f32ab	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
 20231030	23:45:59	454313d3-2655-4c92-bb50-8bd83eb1ecc7	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
 20231031	01:10:06	fc591ec0-3c06-404e-a709-dea81a08db83	SyntaxError	Expected double-quoted property name in JSON at position 30	PATCH	/pedido/8	undefined
+20231031	11:24:57	c723a8af-5c53-4e54-a2ed-c0cef5dfa920	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231031	11:26:11	788944af-bb10-4aa0-ac4d-538833dcc2e9	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231031	11:27:10	8e8ba462-4a6a-4f23-91c6-d7cc96e755ff	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231031	11:28:03	e2b37dff-067d-48e9-8d7d-885b603d76a7	QueryFailedError	duplicate key value violates unique constraint "UQ_446adfc18b35418aac32ae0b7b5"	POST	/usuario/	undefined
+20231031	11:37:25	5aca583c-993e-4feb-a9f3-57a1cf3b2123	QueryFailedError	insert or update on table "pedidos" violates foreign key constraint "FK_382426a190bae57296a7106ce3d"	POST	/pedido/	undefined
+20231031	12:00:28	6cb193d4-a98a-4a69-bf32-844f41ec3028	SyntaxError	Unexpected number in JSON at position 49	POST	/pedido/	undefined
+20231031	12:01:01	7c453793-dc46-40ba-8cec-85849b387b43	SyntaxError	Unexpected number in JSON at position 49	POST	/pedido/	undefined

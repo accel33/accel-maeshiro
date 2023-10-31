@@ -66,7 +66,7 @@ const obtenerUsuario = asyncHandler(
     console.log(req.params.id);
 
     const usuario = await Usuario.findOneBy({
-      codigo_de_trabajador: req.params.id,
+      codigoTrabajador: req.params.id,
     });
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
@@ -91,12 +91,22 @@ const actualizarUsuario = asyncHandler(
     }
 
     const usuario = await Usuario.findOneBy({
-      codigo_de_trabajador: req.params.id,
+      codigoTrabajador: req.params.id,
     });
     if (!usuario) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
-    console.log(usuario);
+
+    usuario.nombre = nombre;
+    usuario.email = email;
+    usuario.password = password;
+    usuario.telefono = telefono;
+    usuario.rol = rol;
+    usuario.puesto = puesto;
+    if (password) {
+      // Hash password
+      usuario.password = await bcrypt.hash(password, 10); // salt rounds
+    }
 
     const result = await Usuario.save(usuario);
     if (!result) {

@@ -19,5 +19,5 @@ export class ProductoDto {
 
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
   @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
-  unidad_de_medida: string;
+  unidadMedida: string;
 }

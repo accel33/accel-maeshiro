@@ -10,7 +10,7 @@ import path from 'path';
 
 // Importaciones Locales
 import { opcionesCors } from './config/opcionesCors';
-import { AppDataSource } from './config/data-source';
+import { AppDataSource } from './config/dataSource';
 import { logger, logEvents } from './middleware/logger';
 import { manejadorDeErrores } from './middleware/manejadorDeErrores';
 import { InitializedRelationError } from 'typeorm';

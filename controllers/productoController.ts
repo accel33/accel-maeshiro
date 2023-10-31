@@ -7,7 +7,7 @@ import { validatorDto } from '../dto/ValidatorDto';
 // const productoRepository = AppDataSource.getRepository(Producto);
 
 // @desc Obtener todo los Productos
-// @ruta GET /producto
+// @ruta GET /productos
 // @acceso Privado
 const obtenerTodosLosProductos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -66,7 +66,7 @@ const obtenerProducto = asyncHandler(
 const actualizarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     console.log('Actualizar Producto');
-    const { nombre, tipo, etiquetas, precio, unidad_de_medida } = req.body;
+    const { nombre, tipo, etiquetas, precio, unidadMedida } = req.body;
 
     const err = await validatorDto(ProductoDto, req.body);
     if (err) {
@@ -87,7 +87,7 @@ const actualizarProducto = asyncHandler(
     producto.tipo = tipo;
     producto.etiquetas = etiquetas;
     producto.precio = precio;
-    producto.unidad_de_medida = unidad_de_medida;
+    producto.unidadMedida = unidadMedida;
 
     const result = await Producto.save(producto);
     if (!result) {

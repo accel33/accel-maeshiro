@@ -4,6 +4,7 @@ import asyncHandler from 'express-async-handler';
 import { PedidoDto } from '../dto/PedidoDto';
 import { validatorDto } from '../dto/ValidatorDto';
 import moment from 'moment-timezone';
+import { obtenerFechaActual } from '../utils/obtenerFechaActual';
 // import { AppDataSource } from '../config/data-source';
 // const pedidoRepository = AppDataSource.getRepository(Pedido);
 
@@ -13,7 +14,6 @@ import moment from 'moment-timezone';
 const obtenerTodosLosPedidos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     const pedidos = await Pedido.find({
-      // relations: ['vendedor', 'repartidor'],
       relations: ['vendedor', 'repartidor', 'productos'],
     });
     if (!pedidos?.length) {
@@ -28,6 +28,7 @@ const obtenerTodosLosPedidos = asyncHandler(
 // @acceso Privado
 const crearPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
+    const { sku } = req.body;
     const err = await validatorDto(PedidoDto, req.body);
     if (err) {
       return res.json({
@@ -35,6 +36,19 @@ const crearPedido = asyncHandler(
       });
     }
 
+    // Asegurar que producto no exista dentro del arreglo de objetos
+    // Hay efectos secundarios si no se utiiliza esta validacion aqui
+    const producto = await Pedido.findOneBy({
+      productos: { sku: sku },
+    });
+    if (producto) {
+      return res
+        .status(404)
+        .json({ message: 'Error de restriccion: Producto ya existe' });
+    }
+
+    // Obtener la fecha con zona horaria Peru, para asignarla en los
+    // pedidos basado en la actualizacion del estado del pedido
     const obtenerFechaActual = (): Date => {
       const limaTime = moment.tz('America/Lima');
       const offsetMinutes = limaTime.utcOffset();
@@ -45,6 +59,7 @@ const crearPedido = asyncHandler(
 
     const guardarPedido = await Pedido.create(req.body);
     guardarPedido.fecha_pedido = obtenerFechaActual();
+
     const result = await Pedido.save(guardarPedido);
     if (!result) {
       return res.status(400).json({ message: 'Pedido no guardado' });
@@ -60,7 +75,7 @@ const crearPedido = asyncHandler(
 const obtenerPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     const pedido = await Pedido.findOneBy({
-      numero_de_pedido: req.params.id,
+      numeroPedido: req.params.id,
     });
     if (!pedido) {
       return res.status(404).json({ message: 'Pedido no encontrado' });
@@ -84,7 +99,7 @@ const actualizarPedido = asyncHandler(
     }
 
     const pedido = await Pedido.findOneBy({
-      numero_de_pedido: req.params.id,
+      numeroPedido: req.params.id,
     });
     if (!pedido) {
       return res.status(404).json({ message: 'Pedido no encontrado' });
@@ -102,16 +117,6 @@ const actualizarPedido = asyncHandler(
       return res.status(400).json({ message: 'Estado no válido' });
     }
 
-    // Función para obtener la fecha actual
-    const obtenerFechaActual = (): Date => {
-      const limaTime = moment.tz('America/Lima');
-      const offsetMinutes = limaTime.utcOffset();
-      const jsDate = new Date(limaTime.format());
-      jsDate.setMinutes(jsDate.getMinutes() + offsetMinutes);
-      return jsDate;
-    };
-    console.log(obtenerFechaActual());
-
     // Definir el cambio de estado jerárquico
     if (
       estadosValidos.indexOf(pedido.estado) > estadosValidos.indexOf(estado)
@@ -123,16 +128,16 @@ const actualizarPedido = asyncHandler(
 
     switch (estado) {
       case EstadoEnum.POR_ATENDER:
-        pedido.fecha_pedido = obtenerFechaActual();
+        pedido.fechaPedido = obtenerFechaActual();
         break;
       case EstadoEnum.EN_PROCESO:
-        pedido.fecha_recepcion = obtenerFechaActual();
+        pedido.fechaRecepcion = obtenerFechaActual();
         break;
       case EstadoEnum.DELIVERY:
-        pedido.fecha_despacho = obtenerFechaActual();
+        pedido.fechaDespacho = obtenerFechaActual();
         break;
       case EstadoEnum.RECIBIDO:
-        pedido.fecha_entrega = obtenerFechaActual();
+        pedido.fechaEntrega = obtenerFechaActual();
         break;
     }
 
