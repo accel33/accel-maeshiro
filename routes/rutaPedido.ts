@@ -7,6 +7,9 @@ import {
   obtenerTodosLosPedidos,
   obtenerPedido,
 } from '../controllers/pedidoController';
+import { verificarJWT } from '../middleware/verificarJWT';
+
+// router.use(verificarJWT);
 
 router.route('/').get(obtenerTodosLosPedidos).post(crearPedido);
 router

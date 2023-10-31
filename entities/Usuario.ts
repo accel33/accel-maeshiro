@@ -1,10 +1,8 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   BaseEntity,
   BeforeInsert,
-  getConnection,
   PrimaryColumn,
 } from 'typeorm';
 import { AppDataSource } from '../config/data-source';

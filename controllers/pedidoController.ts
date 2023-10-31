@@ -27,10 +27,6 @@ const obtenerTodosLosPedidos = asyncHandler(
 // @acceso Privado
 const crearPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Crear Pedido');
-    console.log('body', req.body);
-    const { productos } = req.body;
-
     const err = await validatorDto(PedidoDto, req.body);
     if (err) {
       return res.json({
@@ -39,15 +35,11 @@ const crearPedido = asyncHandler(
     }
 
     const guardarPedido = await Pedido.create(req.body);
-    console.log('guardarPedido');
-    console.log(guardarPedido);
 
     const result = await Pedido.save(guardarPedido);
     if (!result) {
       return res.status(400).json({ message: 'Pedido no guardado' });
     }
-    console.log('result');
-    console.log(result);
 
     res.json({ message: 'Pedido creado' });
   }
@@ -58,10 +50,6 @@ const crearPedido = asyncHandler(
 // @acceso Privado
 const obtenerPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Obtener Pedido');
-    console.log('called');
-    console.log(req.params.id);
-
     const pedido = await Pedido.findOneBy({
       numero_de_pedido: req.params.id,
     });
@@ -78,16 +66,6 @@ const obtenerPedido = asyncHandler(
 const actualizarPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
     console.log('Actualizar Pedido');
-    const {
-      fecha_despacho,
-      fecha_entrega,
-      fecha_pedido,
-      fecha_recepcion,
-      estado,
-      vendedor,
-      repartidor,
-      productos,
-    } = req.body;
 
     const err = await validatorDto(PedidoDto, req.body);
     if (err) {
@@ -102,13 +80,11 @@ const actualizarPedido = asyncHandler(
     if (!pedido) {
       return res.status(404).json({ message: 'Pedido no encontrado' });
     }
-    console.log(pedido);
 
     const result = await Pedido.save(pedido);
     if (!result) {
       return res.status(400).json({ message: 'Pedido no actualizado' });
     }
-    console.log(result);
 
     res.json({ message: 'Pedido actualizado' });
   }
@@ -119,8 +95,6 @@ const actualizarPedido = asyncHandler(
 // @acceso Privado
 const borrarPedido = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    console.log('Borrar pedido');
-
     const pedido = await Pedido.delete(req.params.id);
     if (!pedido) {
       return res.status(400).json({ message: 'Pedido no guardado' });

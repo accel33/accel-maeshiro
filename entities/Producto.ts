@@ -1,13 +1,10 @@
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
   ManyToOne,
   BaseEntity,
   BeforeInsert,
   PrimaryColumn,
-  OneToOne,
-  OneToMany,
   JoinColumn,
 } from 'typeorm';
 import { Pedido } from './Pedido';

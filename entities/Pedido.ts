@@ -1,18 +1,15 @@
 import {
   Entity,
   Column,
-  OneToOne,
-  PrimaryColumn,
-  BeforeInsert,
   BaseEntity,
   CreateDateColumn,
   JoinColumn,
   OneToMany,
   PrimaryGeneratedColumn,
+  ManyToOne,
 } from 'typeorm';
 import { Usuario } from './Usuario';
 import { Producto } from './Producto';
-import { AppDataSource } from '../config/data-source';
 
 export enum EstadoEnum {
   POR_ATENDER = 'Por atender',
@@ -33,10 +30,7 @@ export class Pedido extends BaseEntity {
   })
   fecha_pedido: Date;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP(6)',
-  })
+  @Column({ type: 'date', nullable: true })
   fecha_recepcion: Date;
 
   @Column({ type: 'date', nullable: true })
@@ -52,11 +46,11 @@ export class Pedido extends BaseEntity {
   })
   estado: EstadoEnum;
 
-  @OneToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
+  @ManyToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
   @JoinColumn()
   vendedor: Usuario;
 
-  @OneToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
+  @ManyToOne(() => Usuario, (usuario) => usuario.codigo_de_trabajador)
   @JoinColumn()
   repartidor: Usuario;
 

@@ -33,12 +33,12 @@ const login = asyncHandler(
         },
       },
       process.env.ACCESS_TOKEN_SECRET!,
-      { expiresIn: '20s' }
+      { expiresIn: '15m' }
     );
     const refreshToken = jwt.sign(
       { username: usuario?.nombre },
       process.env.REFRESH_TOKEN_SECRET!,
-      { expiresIn: '1m' }
+      { expiresIn: '7d' }
     );
     // Crea cookie segura con el refresh token
     res.cookie('jwt', refreshToken, {

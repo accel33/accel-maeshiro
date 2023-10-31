@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
+import jwt from 'jsonwebtoken';
 
-const jwt = require('jsonwebtoken');
-
-const verificarJWT = (req: any, res: Response, next: NextFunction) => {
+export const verificarJWT = (req: any, res: Response, next: NextFunction) => {
   // Buscamos header de autorizacion por parte del cliente
   const authHeader =
     req.headers.authorization || (req.headers.Authorization as string);
@@ -18,7 +17,7 @@ const verificarJWT = (req: any, res: Response, next: NextFunction) => {
   // Pasamos token de cliente, token de servidor, decodificamos y anexamos al req
   jwt.verify(
     token,
-    process.env.ACCESS_TOKEN_SECRET,
+    process.env.ACCESS_TOKEN_SECRET!,
     (err: any, decoded: any) => {
       if (err) return res.status(403).json({ message: 'Forbidden' });
       req.nombre = decoded.UserInfo.nombre;
@@ -27,5 +26,3 @@ const verificarJWT = (req: any, res: Response, next: NextFunction) => {
     }
   );
 };
-
-module.exports = verificarJWT;

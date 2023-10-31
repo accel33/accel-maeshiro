@@ -7,7 +7,7 @@ import { validatorDto } from '../dto/ValidatorDto';
 // const productoRepository = AppDataSource.getRepository(Producto);
 
 // @desc Obtener todo los Productos
-// @ruta GET /productos
+// @ruta GET /producto
 // @acceso Privado
 const obtenerTodosLosProductos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -21,7 +21,7 @@ const obtenerTodosLosProductos = asyncHandler(
 );
 
 // @desc Crear un Producto
-// @ruta POST /productos
+// @ruta POST /producto
 // @acceso Privado
 const crearProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -42,7 +42,7 @@ const crearProducto = asyncHandler(
 );
 
 // @desc Obtener un Productos
-// @ruta GET /productos/:id
+// @ruta GET /producto/:id
 // @acceso Privado
 const obtenerProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -61,7 +61,7 @@ const obtenerProducto = asyncHandler(
 );
 
 // @desc Actualizar un Producto
-// @ruta PATCH /productos/:id
+// @ruta PATCH /producto/:id
 // @acceso Privado
 const actualizarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
@@ -100,7 +100,7 @@ const actualizarProducto = asyncHandler(
 );
 
 // @desc Borrar un Producto
-// @ruta DELETE /productos/:id
+// @ruta DELETE /producto/:id
 // @acceso Privado
 const borrarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {

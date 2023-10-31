@@ -7,6 +7,9 @@ import {
   obtenerTodosLosUsuarios,
   obtenerUsuario,
 } from '../controllers/usuarioController';
+import { verificarJWT } from '../middleware/verificarJWT';
+
+// router.use(verificarJWT);
 
 router.route('/').get(obtenerTodosLosUsuarios).post(crearUsuario);
 router
