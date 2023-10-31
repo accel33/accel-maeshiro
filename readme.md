@@ -1,41 +1,55 @@
 ### Reto Delfosti
 
-Se quiere desarrollar un sistema que tiene como actividad principal la venta de productos basicos. Su principal problema es que no realizan un correcto TRACKING al momento de hacer los pedidos de productos para abastecer su stock.
+Se quiere desarrollar un sistema que tiene como actividad principal la venta de productos basicos. Su principal problema es que no realizan un correcto _tracking_ al momento de hacer los pedidos de productos para abastecer su stock.
 
-### Diagrama de flujo
+### Flujo
 
 1. Usuario se loguea al sistema
-2. Usuario encargado atiende el nuevo pedido
-3.
+2. Usuario se encarga del nuevo pedido
+3. Usuario puede modificar el estado, asignar repartidor y asignar vendedor
 
-### Seria bueno tener
+### Configuración inicial
 
-- [x] El codigo de trabajador simple para el usuario. Ejemplo: '001', '002', ... '900'. Dado que no van a haber mas de 1000 trabajadores en esta empresa.
+Clonar el repositorio para empezar a utilizar la aplicación. Hay que tener instalado [Nodejs](https://nodejs.org/en) de manera global si se quiere probar en local. Una vez completada la instalación ingresar a la carpeta y ejecutar el comando:
 
-- [ ]
+```
+npm install
+```
 
-### Pendientes
+##### El package.json del proyecto cuenta con los siguientes comandos:
 
-- [ ] Proyecto requiere Inversion de dependencia
-      ![Alt text](images/InversionDeDependencia.png)
-      <br>
+1. Comando para correr la aplicacion de manera local:
+   ```
+   npm start
+   ```
+2. Comando para ejecutar las pruebas unitarias de la aplicación:
+   ```
+   npm test
+   ```
+3. Comando para compilar generar el build de la aplicación en /build en codigo javascript:
+   ```
+   npm run build
+   ```
 
-- [ ] Proyecto requiere Sustitucion de Liskov
-      ![Alt text](images/LiskovSustitution.png)
-      <br>
+##### .env
 
-- [ ] Necesito una explicacion para este principio
-      ![Alt text](images/AbiertoCerrado.png)
-      <br>
+```
+NODE_ENV=${Entorno de desarrollo}
+PORT=${Puerto de ejecucion}
+ACCESS_KEY=${Tu Llave de Acceso}
+SECRET_KEY=${Tu Clave Secreta}
+```
 
-- [ ] Utilizar el DTO como Request
-      ![Alt text](images/RequestDto.png)
-      <br>
+### Documentación Postman
 
-- [x] Utilizar el DTO como Request
-      ![Alt text](images/RequestDto.png)
-      <br>
+https://documenter.getpostman.com/view/3273833/2s9YXbB6rz
 
-- [x] Error con el Enum
-      ![Alt text](images/error-con-el-enum.png)
-      <br>
+![My Image](images/postman.png)
+
+---
+
+### Pruebas en desarrollo
+
+![My Image](images/pruebas.png)
+
+---
