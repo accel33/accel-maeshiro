@@ -24,19 +24,16 @@ export class Pedido extends BaseEntity {
   @PrimaryGeneratedColumn('identity')
   numero_de_pedido: string;
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP(6)',
-  })
+  @Column({ type: 'timestamptz', nullable: true })
   fecha_pedido: Date;
 
-  @Column({ type: 'date', nullable: true })
+  @Column({ type: 'timestamptz', nullable: true })
   fecha_recepcion: Date;
 
-  @Column({ type: 'date', nullable: true })
+  @Column({ type: 'timestamptz', nullable: true })
   fecha_despacho: Date;
 
-  @Column({ type: 'date', nullable: true })
+  @Column({ type: 'timestamptz', nullable: true })
   fecha_entrega: Date;
 
   @Column({

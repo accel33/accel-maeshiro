@@ -82,3 +82,4 @@
 20231030	23:40:48	da0060da-f923-4675-84dd-ba765238ae5f	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
 20231030	23:45:01	950c5bf9-6ed8-49e0-b082-ad9cd85f32ab	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
 20231030	23:45:59	454313d3-2655-4c92-bb50-8bd83eb1ecc7	Error	Cannot set headers after they are sent to the client	POST	/auth/	undefined
+20231031	01:10:06	fc591ec0-3c06-404e-a709-dea81a08db83	SyntaxError	Expected double-quoted property name in JSON at position 30	PATCH	/pedido/8	undefined
