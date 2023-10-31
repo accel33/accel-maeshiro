@@ -1,4 +1,4 @@
-### Reto Delfosti
+# Reto Delfosti
 
 Se quiere desarrollar un sistema que tiene como actividad principal la venta de productos básicos. Su principal problema es que no realizan un correcto _tracking_ al momento de hacer los pedidos de productos para abastecer su stock.
 
