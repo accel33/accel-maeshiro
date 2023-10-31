@@ -6,7 +6,7 @@ import {
   crearPedido,
   obtenerTodosLosPedidos,
   obtenerPedido,
-} from '../controllers/pedidoController';
+} from '../controllers/controladorPedido';
 import { verificarJWT } from '../middleware/verificarJWT';
 
 // router.use(verificarJWT);

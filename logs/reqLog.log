@@ -399,3 +399,9 @@
 20231031	12:03:10	86623c8b-8160-4897-9285-d3a046ee80dc	POST	/pedido/	undefined
 20231031	12:03:13	c8a07398-b1d6-4217-8c98-047dd817f714	POST	/pedido/	undefined
 20231031	12:06:13	6c806039-f0a1-4673-a0bf-5d9c285c5591	GET	/producto/	undefined
+20231031	12:48:40	9095eafa-7445-4993-a202-131d6eb50125	POST	/auth/	undefined
+20231031	12:48:56	2f6d5e7d-1c32-4011-8b69-7eed8f4eca10	POST	/auth/	undefined
+20231031	12:51:07	bde79fa2-a3c6-470f-8c6f-4f5133172610	POST	/auth/	undefined
+20231031	12:51:10	587a5f0f-c3a3-475c-9df7-a052c187a8ea	GET	/usuario/	undefined
+20231031	12:51:11	c8ec03db-4d7b-4014-966e-8d9da328f125	GET	/producto/	undefined
+20231031	12:51:13	54ea7e0b-f99a-4730-b5f6-5d221de1ed29	GET	/pedido	undefined

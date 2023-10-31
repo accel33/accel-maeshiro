@@ -6,7 +6,7 @@ import {
   crearProducto,
   obtenerTodosLosProductos,
   obtenerProducto,
-} from '../controllers/productoController';
+} from '../controllers/controladorUsuario';
 import { verificarJWT } from '../middleware/verificarJWT';
 
 // router.use(verificarJWT);
