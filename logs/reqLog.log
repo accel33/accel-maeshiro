@@ -417,3 +417,10 @@
 20231031	13:07:16	ec334fb7-0f9c-41d2-a62c-dbaa617c037a	GET	/pedido	undefined
 20231031	17:39:53	0ab313fb-8205-4d52-8382-74cb256208cc	POST	/auth/	undefined
 20231031	17:41:40	aba31f4c-6cba-4038-bccc-71a58dbc3f2b	GET	/auth/refresh	undefined
+20231102	13:09:22	71ba43ae-df24-4887-9973-c3709809f862	GET	/	undefined
+20231102	13:09:22	059692e8-b78e-4b5f-a071-f998a1e56b78	GET	/css/style.css	undefined
+20231102	13:09:23	42a7fcc6-031b-4856-bf79-d93d5ec620f8	GET	/favicon.ico	undefined
+20231102	13:09:28	576f0a2c-9370-4131-bb7f-e4db94ab1a20	GET	/as	undefined
+20231102	13:09:28	f86d990f-0d7c-49b8-b470-02391a72a006	GET	/css/style.css	undefined
+20231102	13:09:35	8cd54543-470b-4541-be40-cc2aa40f8e59	GET	/	undefined
+20231102	13:09:35	f4551a15-072c-4efc-a36c-fe6b8f310ae3	GET	/css/style.css	undefined

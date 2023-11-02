@@ -1,127 +1,112 @@
 import { Request, Response } from 'express';
-import { Usuario } from '../entities/Usuario';
+import { Producto } from '../entities/Producto';
 import asyncHandler from 'express-async-handler';
-import { UsuarioDto } from '../dto/UsuarioDto';
+import { ProductoDto } from '../dto/ProductoDto';
 import { validatorDto } from '../dto/ValidatorDto';
-import bcrypt from 'bcrypt';
 // import { AppDataSource } from '../config/data-source';
-// const usuarioRepository = AppDataSource.getRepository(Usuario);
+// const productoRepository = AppDataSource.getRepository(Producto);
 
-// @desc Obtener todo los Usuarios
-// @ruta GET /usuarios
+// @desc Obtener todo los Productos
+// @ruta GET /productos
 // @acceso Privado
-const obtenerTodosLosUsuarios = asyncHandler(
+const obtenerTodosLosProductos = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const usuarios = await Usuario.find();
-    if (!usuarios?.length) {
-      return res.status(400).json({ message: 'Usuarios no encontrados' });
+    const productos = await Producto.find();
+
+    if (!productos?.length) {
+      return res.status(400).json({ message: 'Productos no encontrados' });
     }
-    res.json(usuarios);
+    res.json(productos);
   }
 );
 
-// @desc Crear un Usuario
-// @ruta POST /usuarios
+// @desc Crear un Producto
+// @ruta POST /producto
 // @acceso Privado
-const crearUsuario = asyncHandler(
+const crearProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const { password } = req.body;
+    const err = await validatorDto(ProductoDto, req.body);
+    if (err) {
+      return res.json({
+        message: `Error de validacion: ${err}`,
+      });
+    }
+    const nuevoProducto = await Producto.create(req.body);
+    const result = await Producto.save(nuevoProducto);
 
-    const err = await validatorDto(UsuarioDto, req.body);
+    res.json({ message: 'Producto creado' });
+  }
+);
+
+// @desc Obtener un Productos
+// @ruta GET /producto/:id
+// @acceso Privado
+const obtenerProducto = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const producto = await Producto.findOneBy({
+      sku: req.params.id,
+    });
+    if (!producto) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
+    }
+    res.json(producto);
+  }
+);
+
+// @desc Actualizar un Producto
+// @ruta PATCH /producto/:id
+// @acceso Privado
+const actualizarProducto = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { nombre, tipo, etiquetas, precio, unidadMedida } = req.body;
+
+    const err = await validatorDto(ProductoDto, req.body);
     if (err) {
       return res.json({
         message: `Error de validacion: ${err}`,
       });
     }
 
-    const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
-
-    const nuevoUsuario = await Usuario.create(req.body);
-    nuevoUsuario.password = hashedPwd;
-
-    const result = await Usuario.save(nuevoUsuario);
-    if (!result) {
-      return res.status(400).json({ message: 'Usuario no guardado' });
-    }
-
-    res.json({ message: 'Usuario creado' });
-  }
-);
-
-// @desc Obtener un Usuarios
-// @ruta GET /usuarios/:id
-// @acceso Privado
-const obtenerUsuario = asyncHandler(
-  async (req: Request, res: Response): Promise<any> => {
-    const usuario = await Usuario.findOneBy({
-      codigoTrabajador: req.params.id,
+    const producto = await Producto.findOneBy({
+      sku: req.params.id,
     });
-    if (!usuario) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
-    }
-    res.json(usuario);
-  }
-);
-
-// @desc Actualizar un Usuario
-// @ruta PATCH /usuarios/:id
-// @acceso Privado
-const actualizarUsuario = asyncHandler(
-  async (req: Request, res: Response): Promise<any> => {
-    const { nombre, email, password, telefono, rol, puesto } = req.body;
-
-    const err = await validatorDto(UsuarioDto, req.body);
-    if (err) {
-      return res.json({
-        message: `Error de validacion: ${err}`,
-      });
+    if (!producto) {
+      return res.status(404).json({ message: 'Producto no encontrado' });
     }
 
-    const usuario = await Usuario.findOneBy({
-      codigoTrabajador: req.params.id,
-    });
-    if (!usuario) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
-    }
+    producto.nombre = nombre;
+    producto.tipo = tipo;
+    producto.etiquetas = etiquetas;
+    producto.precio = precio;
+    producto.unidadMedida = unidadMedida;
 
-    usuario.nombre = nombre;
-    usuario.email = email;
-    usuario.password = password;
-    usuario.telefono = telefono;
-    usuario.rol = rol;
-    usuario.puesto = puesto;
-    if (password) {
-      // Hash password
-      usuario.password = await bcrypt.hash(password, 10); // salt rounds
-    }
-
-    const result = await Usuario.save(usuario);
+    const result = await Producto.save(producto);
     if (!result) {
-      return res.status(400).json({ message: 'Usuario no actualizado' });
+      return res.status(400).json({ message: 'Producto no actualizado' });
     }
 
-    res.json({ message: 'Usuario actualizado' });
+    res.json({ message: 'Producto actualizado' });
   }
 );
 
-// @desc Borrar un Usuario
-// @ruta DELETE /usuarios/:id
+// @desc Borrar un Producto
+// @ruta DELETE /producto/:id
 // @acceso Privado
-const borrarUsuario = asyncHandler(
+const borrarProducto = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const usuario = await Usuario.delete(req.params.id);
-    if (!usuario) {
-      return res.status(400).json({ message: 'Usuario no guardado' });
+    const producto = await Producto.delete(req.params.id);
+    if (!producto) {
+      return res.status(400).json({ message: 'Producto no guardado' });
     }
 
-    res.json({ message: 'Usuario borrado' });
+    res.json({ message: 'Producto borrado' });
   }
 );
 
 export {
-  obtenerTodosLosUsuarios,
-  actualizarUsuario,
-  crearUsuario,
-  borrarUsuario,
-  obtenerUsuario,
+  obtenerTodosLosProductos,
+  actualizarProducto,
+  crearProducto,
+  borrarProducto,
+  obtenerProducto,
 };

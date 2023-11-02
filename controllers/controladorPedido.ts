@@ -35,7 +35,8 @@ const crearPedido = asyncHandler(
       });
     }
 
-    // Asegurar que producto no exista dentro del arreglo de objetos
+    // Asegurar que producto no exista dentro de ninguno de los arreglos
+    // de objetos de los campos "productos". Dado que producto es unico.
     // Hay efectos secundarios si no se utiiliza esta validacion aqui
     const producto = await Pedido.findOneBy({
       productos: { sku: sku },
@@ -154,7 +155,7 @@ const cambiarEstadoYAsignarFecha = (estado: any, pedido: any, res: any) => {
       break;
   }
 
-  pedido.estado = estado !== '' ? estado : pedido.estado;
+  pedido.estado = estado;
 };
 
 export {

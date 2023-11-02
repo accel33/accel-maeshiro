@@ -5,6 +5,7 @@ import {
   Validate,
   IsEnum,
   IsEmail,
+  IsOptional,
 } from 'class-validator';
 import { RolEnum } from '../entities/Usuario';
 
@@ -36,6 +37,7 @@ export class UsuarioDto {
     message: (args) => `${args.property} no es un email valido`,
   })
   @IsString({ message: (args) => `${args.property} debe ingresar caracteres` })
-  @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  // @IsNotEmpty({ message: (args) => `${args.property} es requerido` })
+  @IsOptional()
   email: string;
 }

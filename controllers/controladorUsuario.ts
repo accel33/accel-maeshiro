@@ -1,112 +1,127 @@
 import { Request, Response } from 'express';
-import { Producto } from '../entities/Producto';
+import { Usuario } from '../entities/Usuario';
 import asyncHandler from 'express-async-handler';
-import { ProductoDto } from '../dto/ProductoDto';
+import { UsuarioDto } from '../dto/UsuarioDto';
 import { validatorDto } from '../dto/ValidatorDto';
+import bcrypt from 'bcrypt';
 // import { AppDataSource } from '../config/data-source';
-// const productoRepository = AppDataSource.getRepository(Producto);
+// const usuarioRepository = AppDataSource.getRepository(Usuario);
 
-// @desc Obtener todo los Productos
-// @ruta GET /productos
+// @desc Obtener todo los Usuarios
+// @ruta GET /usuarios
 // @acceso Privado
-const obtenerTodosLosProductos = asyncHandler(
+const obtenerTodosLosUsuarios = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const productos = await Producto.find();
-
-    if (!productos?.length) {
-      return res.status(400).json({ message: 'Productos no encontrados' });
+    const usuarios = await Usuario.find();
+    if (!usuarios?.length) {
+      return res.status(400).json({ message: 'Usuarios no encontrados' });
     }
-    res.json(productos);
+    res.json(usuarios);
   }
 );
 
-// @desc Crear un Producto
-// @ruta POST /producto
+// @desc Crear un Usuario
+// @ruta POST /usuarios
 // @acceso Privado
-const crearProducto = asyncHandler(
+const crearUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const err = await validatorDto(ProductoDto, req.body);
-    if (err) {
-      return res.json({
-        message: `Error de validacion: ${err}`,
-      });
-    }
-    const nuevoProducto = await Producto.create(req.body);
-    const result = await Producto.save(nuevoProducto);
+    const { password } = req.body;
 
-    res.json({ message: 'Producto creado' });
-  }
-);
-
-// @desc Obtener un Productos
-// @ruta GET /producto/:id
-// @acceso Privado
-const obtenerProducto = asyncHandler(
-  async (req: Request, res: Response): Promise<any> => {
-    const producto = await Producto.findOneBy({
-      sku: req.params.id,
-    });
-    if (!producto) {
-      return res.status(404).json({ message: 'Producto no encontrado' });
-    }
-    res.json(producto);
-  }
-);
-
-// @desc Actualizar un Producto
-// @ruta PATCH /producto/:id
-// @acceso Privado
-const actualizarProducto = asyncHandler(
-  async (req: Request, res: Response): Promise<any> => {
-    const { nombre, tipo, etiquetas, precio, unidadMedida } = req.body;
-
-    const err = await validatorDto(ProductoDto, req.body);
+    const err = await validatorDto(UsuarioDto, req.body);
     if (err) {
       return res.json({
         message: `Error de validacion: ${err}`,
       });
     }
 
-    const producto = await Producto.findOneBy({
-      sku: req.params.id,
-    });
-    if (!producto) {
-      return res.status(404).json({ message: 'Producto no encontrado' });
-    }
+    const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
 
-    producto.nombre = nombre;
-    producto.tipo = tipo;
-    producto.etiquetas = etiquetas;
-    producto.precio = precio;
-    producto.unidadMedida = unidadMedida;
+    const nuevoUsuario = await Usuario.create(req.body);
+    nuevoUsuario.password = hashedPwd;
 
-    const result = await Producto.save(producto);
+    const result = await Usuario.save(nuevoUsuario);
     if (!result) {
-      return res.status(400).json({ message: 'Producto no actualizado' });
+      return res.status(400).json({ message: 'Usuario no guardado' });
     }
 
-    res.json({ message: 'Producto actualizado' });
+    res.json({ message: 'Usuario creado' });
   }
 );
 
-// @desc Borrar un Producto
-// @ruta DELETE /producto/:id
+// @desc Obtener un Usuarios
+// @ruta GET /usuarios/:id
 // @acceso Privado
-const borrarProducto = asyncHandler(
+const obtenerUsuario = asyncHandler(
   async (req: Request, res: Response): Promise<any> => {
-    const producto = await Producto.delete(req.params.id);
-    if (!producto) {
-      return res.status(400).json({ message: 'Producto no guardado' });
+    const usuario = await Usuario.findOneBy({
+      codigoTrabajador: req.params.id,
+    });
+    if (!usuario) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+    res.json(usuario);
+  }
+);
+
+// @desc Actualizar un Usuario
+// @ruta PATCH /usuarios/:id
+// @acceso Privado
+const actualizarUsuario = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const { nombre, email, password, telefono, rol, puesto } = req.body;
+
+    const err = await validatorDto(UsuarioDto, req.body);
+    if (err) {
+      return res.json({
+        message: `Error de validacion: ${err}`,
+      });
     }
 
-    res.json({ message: 'Producto borrado' });
+    const usuario = await Usuario.findOneBy({
+      codigoTrabajador: req.params.id,
+    });
+    if (!usuario) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    usuario.nombre = nombre;
+    usuario.email = email;
+    usuario.password = password;
+    usuario.telefono = telefono;
+    usuario.rol = rol;
+    usuario.puesto = puesto;
+    if (password) {
+      // Hash password
+      usuario.password = await bcrypt.hash(password, 10); // salt rounds
+    }
+
+    const result = await Usuario.save(usuario);
+    if (!result) {
+      return res.status(400).json({ message: 'Usuario no actualizado' });
+    }
+
+    res.json({ message: 'Usuario actualizado' });
+  }
+);
+
+// @desc Borrar un Usuario
+// @ruta DELETE /usuarios/:id
+// @acceso Privado
+const borrarUsuario = asyncHandler(
+  async (req: Request, res: Response): Promise<any> => {
+    const usuario = await Usuario.delete(req.params.id);
+    if (!usuario) {
+      return res.status(400).json({ message: 'Usuario no guardado' });
+    }
+
+    res.json({ message: 'Usuario borrado' });
   }
 );
 
 export {
-  obtenerTodosLosProductos,
-  actualizarProducto,
-  crearProducto,
-  borrarProducto,
-  obtenerProducto,
+  obtenerTodosLosUsuarios,
+  actualizarUsuario,
+  crearUsuario,
+  borrarUsuario,
+  obtenerUsuario,
 };

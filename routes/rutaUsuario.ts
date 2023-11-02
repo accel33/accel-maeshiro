@@ -6,7 +6,7 @@ import {
   crearUsuario,
   obtenerTodosLosUsuarios,
   obtenerUsuario,
-} from '../controllers/controladorProducto';
+} from '../controllers/controladorUsuario';
 import { verificarJWT } from '../middleware/verificarJWT';
 
 // router.use(verificarJWT);
